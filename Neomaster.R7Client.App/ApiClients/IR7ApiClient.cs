@@ -12,6 +12,6 @@ public interface IR7ApiClient
   /// </summary>
   /// <param name="request">Запрос на конвертацию.</param>
   /// <param name="cancellationToken">Токен отмены.</param>
-  /// <returns>Статус конвертации.</returns>
-  Task RequestConversionAsync(R7ConvertRequest request, CancellationToken cancellationToken = default);
+  /// <returns>Результат конвертации файла.</returns>
+  Task<R7ConvertResponse> RequestConversionAsync(R7ConvertRequest request, CancellationToken cancellationToken = default);
 }

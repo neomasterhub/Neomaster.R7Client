@@ -31,7 +31,7 @@ public class R7ConvertRequest
   {
     JsonOptions = new JsonSerializerOptions
     {
-      PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+      PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
       Converters = { new JsonStringEnumConverter() },
     };
   }
