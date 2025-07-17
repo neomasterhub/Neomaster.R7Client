@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StyleCop", "StyleCop", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+	ProjectSection(SolutionItems) = preProject
+		StyleCop\StyleCop.json = StyleCop\StyleCop.json
+		StyleCop\StyleCop.ruleset = StyleCop\StyleCop.ruleset
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neomaster.R7Client.App", "Neomaster.R7Client.App\Neomaster.R7Client.App.csproj", "{BBE89EDD-A401-4C43-BE6F-CEC4676A9A96}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neomaster.R7Client.Infra", "Neomaster.R7Client.Infra\Neomaster.R7Client.Infra.csproj", "{736ED577-1EDF-4817-8E1A-FFBE437840E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neomaster.R7Client.Common", "Neomaster.R7Client.Common\Neomaster.R7Client.Common.csproj", "{B4C9F3C6-7439-4A52-825D-E2FE88BBAC05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Neomaster.R7Client.Api", "Neomaster.R7Client.Api\Neomaster.R7Client.Api.csproj", "{598C0A2C-A51D-422F-8A85-03840C702D36}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BBE89EDD-A401-4C43-BE6F-CEC4676A9A96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE89EDD-A401-4C43-BE6F-CEC4676A9A96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE89EDD-A401-4C43-BE6F-CEC4676A9A96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE89EDD-A401-4C43-BE6F-CEC4676A9A96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{736ED577-1EDF-4817-8E1A-FFBE437840E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{736ED577-1EDF-4817-8E1A-FFBE437840E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{736ED577-1EDF-4817-8E1A-FFBE437840E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{736ED577-1EDF-4817-8E1A-FFBE437840E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4C9F3C6-7439-4A52-825D-E2FE88BBAC05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C9F3C6-7439-4A52-825D-E2FE88BBAC05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C9F3C6-7439-4A52-825D-E2FE88BBAC05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C9F3C6-7439-4A52-825D-E2FE88BBAC05}.Release|Any CPU.Build.0 = Release|Any CPU
+		{598C0A2C-A51D-422F-8A85-03840C702D36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{598C0A2C-A51D-422F-8A85-03840C702D36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{598C0A2C-A51D-422F-8A85-03840C702D36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{598C0A2C-A51D-422F-8A85-03840C702D36}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EFF129BA-15F4-44A2-B617-A1B5F87B67BF}
+	EndGlobalSection
+EndGlobal
