@@ -29,9 +29,14 @@ public class DemoController(
   /// Конвертирует документ через API "Р7-Офис. Сервер документов".
   /// </summary>
   /// <param name="fileName">Имя файла для конвертации в рабочей директории.</param>
+  /// <param name="inputType">Тип входного файла для конвертации.</param>
+  /// <param name="outputType">Тип выходного файла для конвертации.</param>
   /// <returns>Файл, полученный при конвертации из сервера конвертации.</returns>
   [HttpGet("convert")]
-  public async Task<IActionResult> ConvertAsync(string fileName)
+  public async Task<IActionResult> ConvertAsync(
+    string fileName,
+    R7ConvertInputType inputType = R7ConvertInputType.Docx,
+    R7ConvertOutputType outputType = R7ConvertOutputType.Pdfa)
   {
     if (string.IsNullOrEmpty(fileName))
     {
@@ -57,7 +62,7 @@ public class DemoController(
     // В режиме отладки сервер конвертации запущен в докере.
     downloadUrl = downloadUrl.Replace("localhost", "host.docker.internal");
 #endif
-    var request = new R7ConvertRequest(downloadUrl, R7ConvertInputType.Doc, R7ConvertOutputType.Pdfa, fileKey);
+    var request = new R7ConvertRequest(downloadUrl, inputType, outputType, fileKey);
 
     var conversionResult = await r7ApiClient.RequestConversionAsync(request);
     var convertedFileName = Path.GetFileNameWithoutExtension(fileName) + conversionResult.FileExtension;
