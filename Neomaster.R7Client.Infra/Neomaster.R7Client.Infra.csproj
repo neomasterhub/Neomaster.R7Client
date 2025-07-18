@@ -4,6 +4,15 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <PackageId>Neomaster.R7Client</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Neomaster</Authors>
+    <Company>Neomaster</Company>
+    <Description>Клиент для взаимодействия с R7 API</Description>
+    <PackageTags>r7;api;client;neomaster</PackageTags>
+    <RepositoryUrl>https://github.com/neomasterhub/Neomaster.R7Client</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
