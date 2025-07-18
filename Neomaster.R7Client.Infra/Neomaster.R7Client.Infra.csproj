@@ -5,11 +5,13 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PackageId>Neomaster.R7Client</PackageId>
-    <Version>1.0.6</Version>
+    <PackageIcon>neomaster64.png</PackageIcon>
+    <Version>1.0.7</Version>
     <Authors>Neomaster</Authors>
     <Company>Neomaster</Company>
+    <Copyright>Copyright © 2024 Neomaster</Copyright>
     <Description>Клиент для взаимодействия с R7 API</Description>
-    <PackageTags>r7;api;client;neomaster</PackageTags>
+    <PackageTags>r7;r7-office;document-server;file-converter;file-conversion;neomaster</PackageTags>
     <RepositoryUrl>https://github.com/neomasterhub/Neomaster.R7Client</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
@@ -17,15 +19,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+    <None Include="neomaster64.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Http" Version="8.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Neomaster.R7Client.App\Neomaster.R7Client.App.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="README.md" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
