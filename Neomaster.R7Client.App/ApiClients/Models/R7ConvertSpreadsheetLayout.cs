@@ -36,23 +36,23 @@ public record R7ConvertSpreadsheetLayout
   /// Позволяет включать заголовки в результирующий файл.
   /// Значение по умолчанию: false.
   /// </summary>
-  public bool Headings { get; init; } = false;
+  public bool Headings { get; init; }
 
   /// <summary>
   /// Позволяет включать линии сетки в результирующий файл.
   /// Значение по умолчанию: false.
   /// </summary>
-  public bool GridLines { get; init; } = false;
+  public bool GridLines { get; init; }
 
   /// <summary>
   /// Задает высоту преобразованной области в результирующем файле, измеряемую в количестве страниц.
   /// Значение по умолчанию: 0.
   /// </summary>
-  public int FitToHeight { get; init; } = 0;
+  public int FitToHeight { get; init; }
 
   /// <summary>
   /// Задает ширину преобразованной области в результирующем файле, измеряемую в количестве страниц.
   /// Значение по умолчанию: 0.
   /// </summary>
-  public int FitToWidth { get; init; } = 0;
+  public int FitToWidth { get; init; }
 }
