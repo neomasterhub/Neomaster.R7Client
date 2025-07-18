@@ -13,7 +13,22 @@ public class R7ConvertRequestUnitTests
   {
     // Arrange
     const string secret = "secret";
-    var request = new R7ConvertRequest("url", R7ConvertInputType.Docx, R7ConvertOutputType.Pdfa, "key");
+    var spreadsheetLayout = new R7ConvertSpreadsheetLayout
+    {
+      FitToHeight = 1,
+      FitToWidth = 1,
+      GridLines = true,
+      Headings = true,
+      IgnorePrintArea = false,
+      Scale = 50,
+    };
+    var request = new R7ConvertRequest(
+      "url",
+      R7ConvertInputType.Docx,
+      R7ConvertOutputType.Pdfa,
+      "key",
+      false,
+      spreadsheetLayout);
 
     // Act
     var jwt = request.ToJwt(secret);
@@ -40,6 +55,13 @@ public class R7ConvertRequestUnitTests
       Assert.That(payload.OutputType, Is.EqualTo(request.OutputType));
       Assert.That(payload.Async, Is.EqualTo(request.Async));
       Assert.That(payload.Key, Is.EqualTo(request.Key));
+      Assert.That(payload.SpreadsheetLayout, Is.Not.Null);
+      Assert.That(payload.SpreadsheetLayout!.FitToHeight, Is.EqualTo(spreadsheetLayout.FitToHeight));
+      Assert.That(payload.SpreadsheetLayout.FitToWidth, Is.EqualTo(spreadsheetLayout.FitToWidth));
+      Assert.That(payload.SpreadsheetLayout.GridLines, Is.EqualTo(spreadsheetLayout.GridLines));
+      Assert.That(payload.SpreadsheetLayout.Headings, Is.EqualTo(spreadsheetLayout.Headings));
+      Assert.That(payload.SpreadsheetLayout.IgnorePrintArea, Is.EqualTo(spreadsheetLayout.IgnorePrintArea));
+      Assert.That(payload.SpreadsheetLayout.Scale, Is.EqualTo(spreadsheetLayout.Scale));
     });
 
     // Проверяем подпись JWT.

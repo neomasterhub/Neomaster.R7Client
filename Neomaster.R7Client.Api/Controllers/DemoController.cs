@@ -28,31 +28,24 @@ public class DemoController(
   /// <summary>
   /// Конвертирует документ через API "Р7-Офис. Сервер документов".
   /// </summary>
-  /// <param name="fileName">Имя файла для конвертации в рабочей директории.</param>
-  /// <param name="inputType">Тип входного файла для конвертации.</param>
-  /// <param name="outputType">Тип выходного файла для конвертации.</param>
+  /// <param name="request">Запрос на конвертацию документа в PDF.</param>
   /// <returns>Файл, полученный при конвертации из сервера конвертации.</returns>
-  [HttpGet("convert")]
-  public async Task<IActionResult> ConvertAsync(
-    string fileName,
-    R7ConvertInputType inputType = R7ConvertInputType.Docx,
-    R7ConvertOutputType outputType = R7ConvertOutputType.Pdfa)
+  [HttpPost("convert")]
+  public async Task<IActionResult> ConvertAsync(ConvertDocToPdfRequest request)
   {
-    if (string.IsNullOrEmpty(fileName))
-    {
-      throw new ArgumentNullException(nameof(fileName));
-    }
+    ArgumentNullException.ThrowIfNull(request);
+    ArgumentNullException.ThrowIfNull(request.FileName);
 
     var workingDirectory = configuration[_workingDirectoryConfigurationKey]
       ?? throw new ApplicationException($"Не задана рабочая директория для конвертации: ключ конфигурации \"{_workingDirectoryConfigurationKey}\".");
 
-    var filePath = Path.Combine(workingDirectory, fileName);
+    var filePath = Path.Combine(workingDirectory, request.FileName);
     if (!IOFile.Exists(filePath))
     {
       throw new FileNotFoundException($"Файл не найден: \"{filePath}\".");
     }
 
-    var fileKey = Guid.NewGuid() + Path.GetExtension(fileName);
+    var fileKey = Guid.NewGuid() + Path.GetExtension(request.FileName);
     var fileBytes = await IOFile.ReadAllBytesAsync(filePath);
 
     memoryCache.Set(fileKey, fileBytes, TimeSpan.FromMinutes(10));
@@ -62,10 +55,16 @@ public class DemoController(
     // В режиме отладки сервер конвертации запущен в докере.
     downloadUrl = downloadUrl.Replace("localhost", "host.docker.internal");
 #endif
-    var request = new R7ConvertRequest(downloadUrl, inputType, outputType, fileKey);
+    var r7request = new R7ConvertRequest(
+      downloadUrl,
+      request.InputType,
+      request.OutputType,
+      fileKey,
+      false,
+      request.SpreadsheetLayout);
 
-    var conversionResult = await r7ApiClient.RequestConversionAsync(request);
-    var convertedFileName = Path.GetFileNameWithoutExtension(fileName) + conversionResult.FileExtension;
+    var conversionResult = await r7ApiClient.RequestConversionAsync(r7request);
+    var convertedFileName = Path.GetFileNameWithoutExtension(request.FileName) + conversionResult.FileExtension;
 
     return File(conversionResult.FileStream, MediaTypeNames.Application.Octet, convertedFileName);
   }

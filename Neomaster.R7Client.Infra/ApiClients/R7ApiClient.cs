@@ -35,7 +35,7 @@ public class R7ApiClient(
       ?? throw new Exception("Не удалось получить статус конвертации: ответ от сервера пустой.");
 
     if (convertStatus.Error != 0
-      && Consts.MapConversionErrorCodeToDescription.TryGetValue(convertStatus.Error, out var errorDescription))
+      && R7ClientConsts.MapConversionErrorCodeToDescription.TryGetValue(convertStatus.Error, out var errorDescription))
     {
       throw new Exception($"Ошибка конвертации: код {convertStatus.Error}: {errorDescription}");
     }

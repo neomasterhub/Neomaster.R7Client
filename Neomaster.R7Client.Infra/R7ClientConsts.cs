@@ -3,7 +3,7 @@ namespace Neomaster.R7Client.Infra;
 /// <summary>
 /// Постоянные значения и справочные данные для работы с API "Р7-Офис. Сервер документов".
 /// </summary>
-public class Consts
+public class R7ClientConsts
 {
   /// <summary>
   /// Коды ошибок конвертации через API "Р7-Офис. Сервер документов".

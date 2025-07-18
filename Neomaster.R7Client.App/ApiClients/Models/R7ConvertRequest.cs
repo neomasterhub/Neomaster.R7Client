@@ -41,7 +41,8 @@ public class R7ConvertRequest
     R7ConvertInputType inputType,
     R7ConvertOutputType outputType,
     string? key = null,
-    bool async = false)
+    bool async = false,
+    R7ConvertSpreadsheetLayout? spreadsheetLayout = null)
   {
     Async = async;
     InputType = inputType;
@@ -51,6 +52,11 @@ public class R7ConvertRequest
     if (string.IsNullOrEmpty(url))
     {
       throw new ArgumentNullException(nameof(url));
+    }
+
+    if (spreadsheetLayout != null)
+    {
+      SpreadsheetLayout = spreadsheetLayout;
     }
 
     Url = url;
@@ -83,6 +89,11 @@ public class R7ConvertRequest
   /// </summary>
   [JsonPropertyName("outputtype")]
   public R7ConvertOutputType OutputType { get; }
+
+  /// <summary>
+  /// Настройки для конвертации электронной таблицы.
+  /// </summary>
+  public R7ConvertSpreadsheetLayout SpreadsheetLayout { get; } = new();
 
   /// <summary>
   /// Создает токен, содержащий параметры конвертации.
