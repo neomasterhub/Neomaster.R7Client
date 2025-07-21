@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace Neomaster.R7Client.Common.UnitTests.Extensions;
+namespace Neomaster.R7Client.Common.UnitTests;
 
 [TestFixture]
 public class EnumerableExtensionsUnitTests
