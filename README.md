@@ -93,3 +93,4 @@ builder.Services.AddMemoryCache(); // Буфер временного хране
 
 - 🌐 В комплекте с клиентом есть демонстрационное приложение - **Neomaster.R7Client.Api**.
 - 📖 [Документация по конвертации](https://support.r7-office.ru/document_server/api-document_server/more_api/conversion-api/)
+- 📂 [Примеры конвертации в PDF](https://github.com/neomasterhub/Neomaster.R7Client/tree/master/Resources/conversion-to-pdf)
